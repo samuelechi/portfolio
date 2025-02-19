@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    --z-fixed: 100;
+}
+
+:root{
+    --royal-blue: #4169E1;
+    --text-color: #6c757d;
+    --font-light-color: #a4acc4;
+    --font-dark-color: #313131;
+    --font-dark-color-2: #151515;
+    --white-color: #fff;
+}
+:root{
+    --mb1: .5rem;
+    --mb2: 1rem;
+    --mb3: 1.5rem;
+    --mb4: 2rem;
+}
+:root{
+    --header-height: 3rem;
+    --font-medium: 500;
+    --big-font-size: 6rem;
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.17rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --font-family: 'Poppins', sans-serif;
+}
+@media screen and (min-width: 768px){
+    :root{
+        --header-height: 4rem;
+        --big-font-size: 9rem;
+        --h1-font-size: 3rem;
+        --h2-font-size: 2.5rem;
+        --h3-font-size: 2rem;
+        --normal-font-size: 0.875rem;
+        --small-font-size: 0.75rem;
+    }
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--royal-blue);
+    line-height: 1.6;
+    font-family: var(--font-family);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    color: var(--white-color);
+}
+h1,h2,p{
+    margin: 0;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: var(--white-color);
+}
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.home-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-fixed);
+}
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--royal-blue);
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+}
+.menu-ul{
+    display: flex;
+    
+}
