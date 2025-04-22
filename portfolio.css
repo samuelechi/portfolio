@@ -119,6 +119,7 @@ img{
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease;
+    position: relative;
 }
 .menu-ul li a:hover{
     color: #FF0000;
@@ -129,25 +130,39 @@ img{
     cursor: pointer;
     display: none;
 }
+.active::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--dark-red);
+}
+
 @media screen and (max-width: 768px){
     .menu-ul{
         position: fixed;
         top: var(--header-height);
         align-items: center;
-        right: 0;
+        left: 100%;
         width: 100%;
-        box-shadow: 0 4px 6px rgba(0,0,0,.1);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
         padding: 1rem 0;
         display: flex;
         flex-direction: column;
         height: 100%;
-        background-color: var(--white-color);
-        backdrop-filter: blur(20px);
-       
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        transition: 0.3s ease;
+    }
+    .menu-ul.active{
+        left: 0;
     }
  
     .menu-ul li{
         margin-bottom: var(--mb2);
+
     }
     .menu-ul li a{
         position: relative;
