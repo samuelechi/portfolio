@@ -21,14 +21,14 @@ window.addEventListener("scroll", () => {
     });
 });
 
-var typed = new Typed("typing-text",{
-    Strings: ["Frontend Website Developer", "Aspiring Game Developer", "Tech Enthusiast"],
+var typed = new Typed(".texts", {
+    strings: ["A Frontend Website Developer", "An Aspiring Game Developer", "A Tech Enthusiast..."],
     typeSpeed: 100,
-    backSpeed: 60,
+    backSpeed: 100,
     backDelay: 1000,
     loop: true
-
 });
+
 
 const menubtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".menu-ul");
