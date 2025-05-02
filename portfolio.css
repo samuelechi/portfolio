@@ -129,9 +129,9 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:70px 10% 0;
+    padding: 70px 10% 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: relative;
 }
 
@@ -161,7 +161,7 @@ img{
     width: 100%;
     height: 100%;
 
-
+    
     gap: 1rem;
     margin-top: 2rem;
 
@@ -200,7 +200,9 @@ img{
     right: 0;
     width: 100%;
     height: 100%;
+    
     z-index: -1;
+    
 }
 .home-img2 img{
     width: 100%;
@@ -302,6 +304,7 @@ img{
   
     padding:70px 10% 0;
     position: relative;
+    margin-bottom: -34px;
     
     
     color: var(--royal-blue);
@@ -310,12 +313,153 @@ img{
     
     
     text-align: left;
+    max-width: 100%;;
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
 } 
 .about-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    gap: 10rem;
+    max-width: 100%;
+    height: 100%;
     padding: 1rem;
+    position: relative;
+   
+}
+.about-container .about-content h3{
+    font-size: var(--h3-font-size);
+    color: var(--royal-blue);
+    margin-bottom: var(--mb2);
+    font-weight: var(--font-medium);
+    padding: 1rem;
+}
+.about-container .about-content h1{
+    font-size: var(--h1-font-size);
+    color: var(--royal-blue);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--mb2);
+    padding: 1rem;
+}
+.about-container .about-content p{
+    font-size: var(--normal-font-size);
+    color: var(--royal-blue);
+    margin-bottom: var(--mb3);
+    line-height: 1.5;
+    word-spacing: 5px;
+    letter-spacing: 1px;
+    text-align: justify;
+    padding: 1rem;
+    font-style: italic;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+.about-container .about-img img{
+    max-width: 100%;
+    height: auto;
+ transform: scale(2);
+    gap: 1rem;
+    padding: 0.3rem;
+    border-radius: 50%;
+    box-shadow: 0 0 40px var(--royal-blue);
+    transition: 0.3s ease;
+    background-color: var(--royal-blue);
+}
+.about-container .about-img img:hover{
+    transform: scale(3.3);
+    box-shadow: 0 0 40px var(--royal-blue);
+}
+
+.home-btn{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--dark-red);
+    color: var(--white-color);
+    border-radius: 5px;
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    transition: 0.3s ease;
+    margin-top: var(--mb1);
+}
+.home-btn:hover{
+    background: var(--white-color);
+    color: var(--dark-red);
+    transform: scale(1.1);
+    box-shadow: 0 0 40px var(--dark-red);
+}
+.skills{
+    background-color: var(--white-color);
+    color: var(--text-color);
+   
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 100px;
+}
+.skills-container{
+row-gap: 1rem;
+width: 100%;
+height: 80vh;
+display: flex;
+flex-direction: row;
+
+
+}
+.skills-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 6rem;
+    max-width: 100%;
+    height: 100%;
+    padding: 1rem;
+    text-align: left;
+    background-color: var(--white-color);
+    
+    
     
 }
+.skills-subtitle{
+    color: var(--royal-blue);
+    font-size: var(--h3-font-size);
+    font-weight: 300;
+    margin-bottom: var(--mb4);
+    margin-top: var(--mb2);
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+.skills-name{
+    display: inline-block;
+    font-size: var(--normal-font-size);
+    margin-right: var(--mb2);
+    margin-bottom: var(--mb3);
+    padding: .25rem 0.5rem;
+    background: var(--font-light-color);
+    border-radius: .25rem;
+    color: var(--white-color);
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+.skills-name:hover{
+    background: var(--royal-blue);
+    color: var(--white-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--royal-blue);
+    font-weight: 200;
+}
+.skills-img img{
+    width: 450px;
+    padding: 1rem;
+    border: var(--white-color) 1px solid;
+    border-radius: 20%;
+    background-color: var(--white-color);
+    box-shadow: 0 0 20px var(--royal-blue);
+    transition: 0.3s ease;
+}
+.skills-text{
+    color: var(--royal-blue);
+    margin-top: 4rem;
+}
+
