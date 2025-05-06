@@ -357,19 +357,19 @@ img{
     font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
 .about-container .about-img img{
-    max-width: 100%;
-    height: auto;
- transform: scale(2);
+   width: 100%;
+   height: auto;
+   transform: scale(1.5);
     gap: 1rem;
     padding: 0.3rem;
-    border-radius: 50%;
-    box-shadow: 0 0 40px var(--royal-blue);
+    border-radius: 100%;
+    box-shadow: 0 0 20px var(--royal-blue);
     transition: 0.3s ease;
     background-color: var(--royal-blue);
 }
 .about-container .about-img img:hover{
-    transform: scale(3.3);
-    box-shadow: 0 0 40px var(--royal-blue);
+    transform: scale(2.5);
+    box-shadow: 0 0 20px var(--royal-blue);
 }
 
 .home-btn{
@@ -398,6 +398,8 @@ img{
     height: auto;
     text-align: center;
     padding: 100px;
+    margin-top: -60px;
+    margin-bottom: -60px;
 }
 .skills-container{
 row-gap: 1rem;
@@ -461,5 +463,73 @@ flex-direction: row;
 .skills-text{
     color: var(--royal-blue);
     margin-top: 4rem;
+}
+.portfolio{
+    background-color: var(--white-color);
+    color: var(--royal-blue);
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 100px;
+    margin-top: -60px;
+}
+.portfolio-container{
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    align-items: center;
+   
+    flex-direction: row;
+    width: 100%;
+    row-gap: 2rem;
+    gap: 20px;
+    height: 100vh;
+    padding: 1rem;
+    text-align: left;
+    column-gap: 4rem;
+   
+    margin-top: -30px;
+    margin-bottom: -30px;
+  
+    background-color: var(--white-color);
+}
+.portfolio-img{
+    position: relative;
+    overflow: hidden;
+
+    width: 50%;
+
+    height: auto;
+   
+}
+.portfolio-img img{
+    border-radius: .5rem;
+    max-width: 100%;
+    height: auto;
+    
+   
+}
+.portfolio-link{
+    position: absolute;
+    bottom: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: .5rem;
+    backdrop-filter: blur(10px);
+    transition: .3s;
+    cursor: pointer;
+}
+.portfolio-img:hover .portfolio-link{
+    bottom: 0;
+}
+#portfolio h3{
+    color: var(--royal-blue);
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--mb2);
 }
 
