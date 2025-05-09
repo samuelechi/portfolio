@@ -34,6 +34,43 @@
     --small-font-size: 0.813rem;
     --font-family: 'Poppins', sans-serif;
 }
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the footer stays at the bottom */
+    margin: 0;
+    padding: 0;
+    color: var(--white-color);
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+
+}
+header{
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    margin-bottom: auto; /* This ensures it stays at the top */
+    z-index: var(--z-fixed);
+}
+
+footer{
+    background-color: var(--white-color);
+    color: var(--royal-blue);
+    text-align: center;
+    position: relative;
+    margin-top: auto; /* This ensures it stays at the bottom */
+    padding: 20px;
+    z-index: var(--z-fixed);
+    width: 100%;
+    height: auto;
+
+}
+
+
+
 @media screen and (min-width: 768px){
     :root{
         --header-height: 4rem;
@@ -297,6 +334,12 @@ img{
     }
     
 }
+@media (max-width: 768px) {
+    .portfolio-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
 .about{
     background-color: #fff;
     
@@ -464,52 +507,46 @@ flex-direction: row;
     color: var(--royal-blue);
     margin-top: 4rem;
 }
-.portfolio{
+.portfolio {
     background-color: var(--white-color);
     color: var(--royal-blue);
     width: 100%;
-    height: auto;
     text-align: center;
     padding: 100px;
     margin-top: -60px;
+    margin-bottom: -60px;
 }
-.portfolio-container{
-    display: flex;
-    justify-items: center;
-    justify-content: space-between;
-    align-items: center;
-   
-    flex-direction: row;
-    width: 100%;
-    row-gap: 2rem;
-    gap: 20px;
-    height: 100vh;
-    padding: 1rem;
-    text-align: left;
-    column-gap: 4rem;
-   
-    margin-top: -30px;
-    margin-bottom: -30px;
-  
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 4rem;
+    padding: 5rem 10%;
     background-color: var(--white-color);
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.portfolio-img{
+
+.portfolio-img {
     position: relative;
     overflow: hidden;
-
-    width: 50%;
-
-    height: auto;
-   
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.portfolio-img img{
-    border-radius: .5rem;
-    max-width: 100%;
+
+.portfolio-img img {
+    width: 100%;
     height: auto;
-    
-   
+    display: block;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
 }
-.portfolio-link{
+
+.portfolio-img:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-link {
     position: absolute;
     bottom: -100%;
     display: flex;
@@ -518,18 +555,180 @@ flex-direction: row;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    border-radius: .5rem;
     backdrop-filter: blur(10px);
-    transition: .3s;
+    border-radius: 0.5rem;
+    transition: 0.3s;
     cursor: pointer;
 }
-.portfolio-img:hover .portfolio-link{
+
+.portfolio-img:hover .portfolio-link {
     bottom: 0;
 }
-#portfolio h3{
+
+.portfolio-link-name {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#portfolio h3 {
     color: var(--royal-blue);
     font-size: var(--h3-font-size);
     font-weight: var(--font-medium);
     margin-bottom: var(--mb2);
+}
+.education {
+    padding: 100px;
+    background-color: var(--royal-blue);
+    color: #1a1a1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .education-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 6rem;
+    padding: 5rem 10%;
+    background-color: var(--royal-blue);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .education-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.education-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.education-img:hover img {
+    transform: scale(1.05);
+}
+
+.education-link {
+    position: absolute;
+    bottom: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.education-img:hover .education-link {
+    bottom: 0;
+}
+
+.education-link-name {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+  
+  .education h2 {
+    font-size: 2rem;
+    color: var(--royal-blue);
+    font-weight: var(--font-medium);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  .education-item {
+    background-color: white;
+    padding: 20px 25px;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+   
+  }
+  
+
+  
+  .education-item h3 {
+    font-size: 1.5rem;
+    color: var(--royal-blue);
+    font-weight: var(--font-medium);
+    margin-bottom: 10px;
+
+  }
+  
+  .education-item p {
+    margin: 6px 0;
+   
+    
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    margin-bottom: var(--mb3);
+    text-align: justify;
+    padding: 1rem;
+    font-style: italic;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+  }
+  
+  .education-item strong {
+    color: var(--royal-blue);
+    font-weight: var(--font-medium);
+  }
+  .education-title h3{
+ color: var(--white-color);
+  }
+  .contact{
+    padding: 100px;
+    background-color: var(--white-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+.contact-container{
+    display: grid;
+    grid-template-columns: repeat(1, 2fr); /* 2 columns */flex-direction: column;
+   flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    gap: 6rem;
+    max-width: 100%;
+    
+    padding: 1rem;
+    text-align: left;
+    background-color: var(--white-color);
+    
+}
+.contact-content form{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr); /* 2 columns */flex-direction: column;
+    gap: 1rem;
+    max-width: 100%;
+   width: 40%;
+ 
+    
+    text-align: left;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--royal-blue);
+    transition: 0.3s ease;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--royal-blue);
+
+
+
 }
 
