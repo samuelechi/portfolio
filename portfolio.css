@@ -424,7 +424,7 @@ img{
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
     transition: 0.3s ease;
-    margin-top: var(--mb1);
+    transform: scale(0.7);
 }
 .home-btn:hover{
     background: var(--white-color);
@@ -694,29 +694,42 @@ flex-direction: row;
     padding: 100px;
     background-color: var(--white-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
   }
 .contact-container{
     display: grid;
     grid-template-columns: repeat(1, 2fr); /* 2 columns */flex-direction: column;
    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    
+    margin-top: 6rem;
     gap: 6rem;
     max-width: 100%;
+    padding: 70px 80% 0;
     
     padding: 1rem;
-    text-align: left;
+    text-align: center;
     background-color: var(--white-color);
     
 }
+.form-con{
+    align-items: center;
+    width: 50%;
+    left: 6rem;
+    display: inline;
+    align-items: center;
+    grid-template-columns: repeat(2, 2fr); /* 2 columns */flex-direction: column;
+    max-width: 50%;
+  
+}
+
 .contact-content form{
-    display: grid;
+    display: inline-grid;
+    flex-direction: column;
     grid-template-columns: repeat(2, 2fr); /* 2 columns */flex-direction: column;
     gap: 1rem;
     max-width: 100%;
-   width: 40%;
- 
+    
     
     text-align: left;
     background-color: var(--white-color);
@@ -728,7 +741,10 @@ flex-direction: row;
     padding: 2rem;
     border: 1px solid var(--royal-blue);
 
-
-
 }
+.contact-info{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr); /* 2 columns */flex-direction: column;
+}
+
 
