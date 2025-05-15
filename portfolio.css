@@ -27,23 +27,30 @@
     --header-height: 3rem;
     --font-medium: 500;
     --big-font-size: 6rem;
-    --h1-font-size: 2rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.17rem;
-    --normal-font-size: 0.938rem;
-    --small-font-size: 0.813rem;
+    --h1-font-size: clamp(2rem, 5vw, 3rem);
+    --h2-font-size: clamp(1.5rem, 4vw, 2.5rem);
+    --h3-font-size: clamp(1.2rem, 3.5vw, 2rem);
+    --normal-font-size: clamp(0.9rem, 2.5vw, 1rem);
+    --small-font-size: clamp(0.75rem, 2vw, 0.875rem);
     --font-family: 'Poppins', sans-serif;
 }
 
 body{
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures the footer stays at the bottom */
+    justify-content: center; /* add if missing */
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     color: var(--white-color);
-    overflow-x: hidden; /* Prevents horizontal scroll */
-    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-size: var(--normal-font-size);
+    font-family: var(--font-family);
+    background: var(--royal-blue);
+    font-weight: var(--font-medium);
+    line-height: 1.6;
 
 }
 header{
@@ -85,18 +92,7 @@ footer{
 html{
     scroll-behavior: smooth;
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: var(--royal-blue);
-    line-height: 1.6;
-    font-family: var(--font-family);
-    font-size: var(--normal-font-size);
-    font-weight: var(--font-medium);
-    color: var(--white-color);
-}
+
 h1,h2,p{
     margin: 0;
 }
@@ -125,7 +121,6 @@ a{
 img{
     max-width: 100%;
     height: auto;
-    display: block;
 }
 .section{
     padding: 3rem 0;
@@ -169,11 +164,12 @@ img{
     padding: 70px 10% 0;
     width: 100%;
     height: 100%;
-    position: relative;
+ 
 }
 
 .home-content{
     max-width: 600px;
+   
 
 }
 .home-content h3{
@@ -224,6 +220,16 @@ img{
     transform: scale(1.1);
     box-shadow: 0;
     box-shadow: 0 0 40px var(--dark-red);
+}
+.home-img{
+    width: 100%;
+  
+ display: flex;
+ flex-direction: row-reverse;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    
 }
 .home-img img{
     width: 450px;
@@ -290,6 +296,20 @@ img{
     background: var(--dark-red);
 }
 
+  
+  @media (max-width: 768px) {
+   
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h3, p {
+      font-size: 1rem;
+    }
+  }
+  
+
 @media screen and (max-width: 768px){
     .menu-ul{
         position: fixed;
@@ -338,7 +358,114 @@ img{
     .portfolio-container {
       grid-template-columns: 1fr;
     }
-  }
+    .body{
+          font-size: clamp(0.875rem, 2.5vw, 1rem);
+          padding: 0;
+          margin: 0;
+        }
+      
+        .home {
+         display: flex;
+        padding: 2rem 1rem;
+        
+            width: 100%;
+            flex-direction: column;
+           position: relative;
+            height: auto;
+        }
+   
+        .home-content {
+            flex-direction: column;
+            column-gap: 2rem;
+        
+           position: absolute;
+            margin-top: var(--header-height);
+            margin-bottom: auto;
+        }
+        .home-content h1 {
+          font-size: clamp(2rem, 6vw, 2.5rem);
+      
+        }
+        .home-content p {
+          font-size: clamp(0.875rem, 2.5vw, 1rem);
+          padding: 0 0.5rem;
+        }
+        .home-img {
+           
+            width: 100%;
+            height: auto;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            
+            top: 0;
+          
+        }
+        .home-img img{
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            right: 0;
+        
+            top: 0;
+            bottom: 0;
+            
+            
+           
+        }
+      
+        .home-img img,
+        .about-img img,
+        .skills-img img {
+          width: 100%;
+          max-width: 300px;
+          height: auto;
+          margin-bottom: 1rem;
+        }
+      
+        .about-container,
+        .skills-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 2rem 1rem;
+        }
+      
+        .portfolio-container {
+          grid-template-columns: 1fr;
+          padding: 1rem;
+          gap: 1.5rem;
+        }
+      
+        .portfolio h2,
+        .skills h2,
+        .about h2,
+        .contact h2 {
+          font-size: clamp(1.5rem, 4vw, 2rem);
+          margin-bottom: 1rem;
+        }
+      
+        h1 {
+          font-size: clamp(2rem, 6vw, 2.5rem);
+        }
+      
+        p {
+          font-size: clamp(0.875rem, 2.5vw, 1rem);
+          padding: 0 0.5rem;
+        }
+      
+        section {
+          padding: 2rem 1rem;
+        }
+      
+        .footer {
+          padding: 1rem;
+          font-size: 0.875rem;
+        }
+      }
+      
+   
+  
   
 .about{
     background-color: #fff;
