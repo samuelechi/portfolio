@@ -60,31 +60,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Intersection observer for nav link highlight
-  const sections = document.querySelectorAll("section");
-  const navLinks2 = document.querySelectorAll(".menu-ul li a");
+const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
 
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5
-  };
-
-  const observerCallback = entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
-        navLinks2.forEach(link => {
-          link.classList.remove("active");
-          if (link.href.includes(`${id}`)) {
-            link.classList.add("active");
-          }
-        });
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
       }
     });
-  };
 
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-  sections.forEach(section => observer.observe(section));
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+
 
   const menubtn = document.querySelector(".menu-btn");
   const menu = document.querySelector(".menu-ul");
