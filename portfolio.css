@@ -35,11 +35,9 @@
     --font-family: 'Poppins', sans-serif;
 }
 
+
 body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* add if missing */
-    align-items: center;
+    
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -147,15 +145,12 @@ img{
 }
 .home-header{
     position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1rem;
     width: 100%;
     text-align: left;
     left: 0;
     top: 0;
-    z-index: var(--z-fixed);
+    z-index: 1000;
 }
 .home{
     display: flex;
@@ -255,7 +250,7 @@ img{
     opacity: 0.5;
 }
 .nav-menu{
-    display: flex;
+   display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -274,7 +269,6 @@ img{
     padding: .5rem;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s ease;
     position: relative;
 }
 .menu-ul li a:hover{
@@ -848,6 +842,7 @@ color: var(--white-color);
     }
   }
 @media screen and (max-width: 768px){
+
    .home-header{
         padding: 1rem;
         width: 100vw;
@@ -872,7 +867,7 @@ color: var(--white-color);
   
      .menu-ul {
     position: fixed;
-    top: var(--header-height);
+     top: var(--header-height);
     left: 100%;
     width: 100%;
     height: calc(100vh - var(--header-height));
@@ -883,19 +878,32 @@ color: var(--white-color);
     background: rgba(0, 0, 0, 0.9); /* Increase opacity for better contrast */
     backdrop-filter: blur(10px); /* Optional: Keep for modern browsers */
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-    transition: 0.3s ease;
-    z-index: 999;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1100;
+      opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
   }
   .menu-ul.active {
     left: 0;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    
+  }
+  .menu-ul li {
+    margin: 1rem 0;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: var(--font-medium);
+    color: var(--white-color); 
+   margin-bottom: var(--mb4);
   }
   .menu-ul li a {
     color: var(--white-color); /* Use white for high contrast */
-    padding: 1rem;
+    padding: .5rem;
     font-size: clamp(1rem, 3vw, 1.2rem);
     font-weight: var(--font-medium);
-    transition: 0.3s ease;
-    background-color: #FF0000;
+  
   }
   .menu-ul li a:hover {
     color: var(--dark-red) !important; /* Maintain hover effect */
@@ -910,8 +918,13 @@ color: var(--white-color);
     cursor: pointer;
     z-index: 1001;
   }
+  .menu-btn:active{
+    z-index: 1001;
+  }
 
 }
+
+
 
 
   
