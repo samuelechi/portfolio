@@ -839,15 +839,16 @@ color: var(--white-color);
     .mobile-text {
       font-size: 2.5rem;
     }
-   .home-header {
+  
+.home-header {
     padding: 1rem;
     width: 100vw;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 1000;
-    background: var(--royal-blue);
-    overflow: visible;
+    background: var(--royal-blue, #003087); /* Fallback */
+    overflow: visible; /* Prevent clipping */
   }
   .nav-menu {
     display: flex;
@@ -858,59 +859,56 @@ color: var(--white-color);
   }
   .logo {
     font-size: 1.2rem;
-    color: var(--white-color);
+    color: var(--white-color, #ffffff); /* Fallback */
   }
   .menu-ul {
     position: fixed;
-    top: var(--header-height);
-    left: 100%;
+    top: var(--header-height, 60px); /* Fallback */
+    left: 100%; /* Hidden off-screen to the right */
     width: 100%;
-    height: calc(100vh - var(--header-height));
+    height: calc(100vh - var(--header-height, 60px));
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2rem 0;
     background: rgba(0, 0, 0, 0.9);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    /* Remove backdrop-filter for testing */
+    /* -webkit-backdrop-filter: blur(10px); */
+    /* backdrop-filter: blur(10px); */
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-    -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    -webkit-transition: left 0.3s ease, opacity 0.3s ease;
+    transition: left 0.3s ease, opacity 0.3s ease;
     z-index: 1100;
     opacity: 0;
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
     pointer-events: none;
   }
   .menu-ul.active {
-    left: 0;
+    left: 0; /* Slide into view */
     opacity: 1;
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
     pointer-events: auto;
   }
   .menu-ul li {
     margin: 1rem 0;
     font-size: clamp(1rem, 3vw, 1.2rem);
-    font-weight: var(--font-medium);
-    color: var(--white-color);
-    margin-bottom: var(--mb4);
+    font-weight: var(--font-medium, 500); /* Fallback */
+    color: var(--white-color, #ffffff);
+    margin-bottom: var(--mb4, 1rem); /* Fallback */
   }
   .menu-ul li a {
-    color: var(--white-color);
+    color: var(--white-color, #ffffff);
     padding: 0.5rem;
     font-size: clamp(1rem, 3vw, 1.2rem);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-medium, 500);
   }
   .menu-ul li a:hover {
-    color: var(--dark-red) !important;
+    color: var(--dark-red, #8b0000) !important; /* Fallback */
   }
   .menu-btn {
     display: block;
     position: absolute;
     top: 0;
     right: 1rem;
-    color: var(--white-color);
+    color: var(--white-color, #ffffff);
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1001;
