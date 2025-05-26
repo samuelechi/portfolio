@@ -92,11 +92,6 @@ const menubtn = document.querySelector(".menu-btn");
       icon.classList.toggle("bx-x");
       menu.classList.toggle("active");
       menubtn.classList.toggle("active");
-
-      // Force reflow for Safari
-      menu.style.display = 'none';
-      menu.offsetHeight; // Trigger reflow
-      menu.style.display = 'flex';
     });
 
     document.querySelectorAll(".menu-ul li a").forEach(item => {
@@ -105,13 +100,6 @@ const menubtn = document.querySelector(".menu-btn");
         icon.classList.add("bx-menu");
         icon.classList.remove("bx-x");
         menubtn.classList.remove("active");
-
-        // Clear styles on menu items (optional, keep if needed)
-        document.querySelectorAll('.menu-ul li').forEach(item => {
-          item.style.opacity = '';
-          item.style.transform = '';
-          item.style.transition = '';
-        });
       });
     });
   }
