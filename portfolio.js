@@ -82,32 +82,38 @@ const sections = document.querySelectorAll("section");
 
 
 
-  const menubtn = document.querySelector(".menu-btn");
+const menubtn = document.querySelector(".menu-btn");
   const menu = document.querySelector(".menu-ul");
   const icon = document.querySelector(".menu-btn i");
-if (menubtn && menu && icon) {
-  menubtn.addEventListener("click", () => {
-    icon.classList.toggle("bx-menu");
-    icon.classList.toggle("bx-x");
-    menu.classList.toggle("active");
-    menubtn.classList.toggle("active");
-  });
 
+  if (menubtn && menu && icon) {
+    menubtn.addEventListener("click", () => {
+      icon.classList.toggle("bx-menu");
+      icon.classList.toggle("bx-x");
+      menu.classList.toggle("active");
+      menubtn.classList.toggle("active");
 
-  document.querySelectorAll(".menu-ul li a").forEach(item => {
-    item.addEventListener("click", () => {
-      menu.classList.remove("active");
-      icon.classList.add("bx-menu");
-      icon.classList.remove("bx-x");
+      // Force reflow for Safari
+      menu.style.display = 'none';
+      menu.offsetHeight; // Trigger reflow
+      menu.style.display = 'flex';
+    });
 
-      // Clear styles immediately when menu closes by clicking a link
-      document.querySelectorAll('.menu-ul li').forEach(item => {
-        item.style.opacity = '';
-        item.style.transform = '';
-        item.style.transition = '';
+    document.querySelectorAll(".menu-ul li a").forEach(item => {
+      item.addEventListener("click", () => {
+        menu.classList.remove("active");
+        icon.classList.add("bx-menu");
+        icon.classList.remove("bx-x");
+        menubtn.classList.remove("active");
+
+        // Clear styles on menu items (optional, keep if needed)
+        document.querySelectorAll('.menu-ul li').forEach(item => {
+          item.style.opacity = '';
+          item.style.transform = '';
+          item.style.transition = '';
+        });
       });
     });
-  });
   }
 });
 
