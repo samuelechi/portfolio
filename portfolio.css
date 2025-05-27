@@ -526,9 +526,7 @@ flex-direction: row;
     font-weight: var(--font-medium);
     margin-bottom: var(--mb2);
 }
-.portfolio-title{
-     margin-top: 60px;
-}
+
 .education {
     padding: 100px;
     background-color: var(--royal-blue);
@@ -1071,10 +1069,9 @@ color: var(--white-color);
 .portfolio-title{
     font-size: var(--h3-font-size);
     color: var(--royal-blue);
-    margin-bottom: var(--mb2);
     font-weight: var(--font-medium);
     padding: 1rem;
-    margin-top: var(--mb4);
+    
 }
 .education {
     padding: 1rem;
