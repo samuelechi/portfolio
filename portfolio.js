@@ -1,3 +1,6 @@
+window.onbeforeunload = () => {
+  window.scrollTo(0, 0);
+};
 document.addEventListener("DOMContentLoaded", () => {
   // ScrollReveal animations
   const sr = ScrollReveal({
@@ -60,24 +63,37 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Intersection observer for nav link highlight
-const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
+  const menuIcon = document.querySelector(".menu-icon");
+  const menu = document.querySelector(".menu");
 
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100;
-      if (pageYOffset >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
+  menuIcon.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
 
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("active");
-      }
-    });
+  // Intersection Observer for active nav link highlighting
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".menu-ul a");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+        const navLink = document.querySelector(`.menu-ul a[href="#${id}"]`);
+
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          navLink?.classList.add("active");
+        }
+      });
+    },
+    {
+      rootMargin: "-50% 0px -50% 0px", // Makes it trigger around middle of viewport
+      threshold: 0.1,
+    }
+  );
+
+  sections.forEach((section) => {
+    observer.observe(section);
   });
 
 
