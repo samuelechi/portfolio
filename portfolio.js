@@ -1,4 +1,6 @@
-
+window.onbeforeunload = () => {
+  window.scrollTo(0, 0);
+};
 document.addEventListener("DOMContentLoaded", () => {
   // ScrollReveal animations
   const sr = ScrollReveal({
