@@ -265,6 +265,10 @@ img{
     margin-right: 1rem;
 
 }
+ .menu-ul li a.active-link {
+  color: var(--dark-red, #8b0000) !important;
+  border-bottom: 2px solid var(--dark-red, #8b0000);
+}
 .menu-ul li a{
     padding: .5rem;
     font-weight: 600;
