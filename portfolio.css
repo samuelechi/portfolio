@@ -852,7 +852,7 @@ color: var(--white-color);
     overflow: visible; /* Prevent clipping */
   }
   .nav-menu {
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
