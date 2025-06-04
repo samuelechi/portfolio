@@ -1000,32 +1000,20 @@ color: var(--white-color);
 .about-img img{
     width: 100px;
 }
-.about-content h3{
-    font-size: var(--h3-font-size);
+.about-container .about-content h3{
     color: var(--royal-blue);
-    margin-bottom: var(--mb2);
     font-weight: var(--font-medium);
     padding: 1rem;
 }
-.about-content h1{
-    font-size: var(--h1-font-size);
-    color: var(--royal-blue);
-    font-weight: var(--font-medium);
-    margin-bottom: var(--mb2);
-    padding: 1rem;
-}
-.about-content p{
-    font-size: var(--normal-font-size);
+
+.about-container .about-content p{
+    text-align: left;
     color: var(--royal-blue);
     margin-bottom: var(--mb3);
     line-height: 1.5;
-    word-spacing: 5px;
-    letter-spacing: 1px;
-    text-align: justify;
-    padding: 1rem;
-    font-style: italic;
-    margin-bottom: var(--mb4);
-    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    word-spacing: .5rem;
+    font-size: large;
+
 }
 .skills{
     width: 100%;
