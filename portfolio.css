@@ -1013,6 +1013,13 @@ color: var(--white-color);
     line-height: 1.5;
     word-spacing: .5rem;
     font-size: large;
+     box-sizing: border-box;
+    border: 1px solid var(--royal-blue);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px var(--royal-blue);
+    padding: 1rem;
+    font-style: italic;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
 
 }
 .skills{
