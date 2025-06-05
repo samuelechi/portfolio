@@ -935,6 +935,7 @@ color: var(--white-color);
 .home{
  
     width: 100%;
+    height: auto;
   
     flex-direction: column;
     overflow: hidden;
