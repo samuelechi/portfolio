@@ -95,7 +95,47 @@ const menubtn = document.querySelector(".menu-btn");
       });
     });
   }
+
+  let input = document.querySelector(".js-home-btn");
+
+input.addEventListener("click", () => {
+  input.classList.add("sent");
+  input.textContent = "Sent!";
+  setTimeout(() => {
+    input.classList.remove("sent");
+    input.classList.add("js-home-btn");
+    input.textContent = "Send Message";
+  }, 4000);
+  const form = document.querySelector(".contact-form");
+  const formData = new FormData(form);
+  const data = {};
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+  fetch("https://formspree.io/f/xjvowzqk", {
+    method: "POST",
+    headers: {
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log("Form submitted successfully!");
+    } else {
+      console.error("Error submitting form:", response.statusText);
+    }
+  })
+  .catch(error => {
+    console.error("Network error:", error);
+  });
+  const contactForm = document.querySelector(".contact-form");
+  contactForm.reset();
+  
+
+})
 });
 
 
   
+
