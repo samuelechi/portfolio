@@ -170,12 +170,12 @@ img{
 .home-content h3{
     font-size: var(--h3-font-size);
 
-    color: var(--white-color);
+    color: rgb(10, 119, 10);
     margin-bottom: var(--mb2);
     font-weight: var(--font-medium);
 }
 .home-content h3 span{
-    color: var(--dark-red);
+    color: rgb(10, 119, 10);
 }
 .home-content h1{
     font-size: var(--h1-font-size);
@@ -1376,4 +1376,5 @@ width: calc(100% - 2rem);
 
   
   
+
 
