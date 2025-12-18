@@ -1,141 +1,106 @@
-window.onbeforeunload = () => {
-  window.scrollTo(0, 0);
-};
 document.addEventListener("DOMContentLoaded", () => {
-  // ScrollReveal animations
-  const sr = ScrollReveal({
-    distance: '60px',
-    duration: 2500,
-    reset: false
-  });
-
-  sr.reveal('.home-content', { origin: 'top' });
-  sr.reveal('.about-content', { origin: 'top' });
-  sr.reveal('.skills-content', { origin: 'top' });
-  sr.reveal('.home-texts', { delay: 500 });
-  // Removed initial reveal on '.menu-ul'
- sr.reveal('.home-social-link', { origin: 'right', interval: 100, delay: 200 });
-  sr.reveal('.home-img', { origin: 'right' });
-  sr.reveal('.skills-img', { origin: 'left' });
-  sr.reveal('.skills-text', { origin: 'right' });
-  sr.reveal('.about-text', { origin: 'right' });
-  sr.reveal('.section-title', { origin: 'left', interval: 100 });
-
-  sr.reveal('.portfolio-img', { origin: 'bottom' });
-  sr.reveal('.education-item', { origin: 'left' });
-  sr.reveal('.contact-item', { origin: 'left' });
-  sr.reveal('.contact-form', { origin: 'right' });
-  sr.reveal('.contact-text-div', { origin: 'left' });
-  sr.reveal('.contact-img', { origin: 'right' });
-  sr.reveal('.contact-infor', { origin: 'left' });
-  sr.reveal('.ql-con', { origin: 'top' });
-  sr.reveal('.contact-social', { origin: 'right' });
- 
-  sr.reveal('.about-img', { origin: 'left' });
-  sr.reveal('.scroll-up', { origin: 'right', delay: 200 });
-
-  // Typed text
-  if (document.querySelector(".texts")) {
-    new Typed(".texts", {
-      strings: ["A Frontend Website Developer", "An Aspiring Game Developer", "A Tech Enthusiast..."],
-      typeSpeed: 100,
-      backSpeed: 100,
-      backDelay: 1000,
-      loop: true
-    });
-  }
-
-  // Scroll to top on click
-  const scrollUpBtn = document.querySelector(".scroll-up");
-  if (scrollUpBtn) {
-    scrollUpBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    
+    // --- Typed JS Configuration ---
+    const typed = new Typed('.typed-text', {
+        strings: ['Frontend Solutions', 'Secure Backends', 'Scalable Web Apps', 'Digital Experiences'],
+        typeSpeed: 60,
+        backSpeed: 40,
+        loop: true
     });
 
-    // Show/hide button on scroll
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollUpBtn.style.display = "block";
-      } else {
-        scrollUpBtn.style.display = "none";
-      }
-    });
-  }
+    // --- Mobile Menu Toggle ---
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    const menuIcon = menuBtn.querySelector('i');
 
-const navLinks = document.querySelectorAll(".menu-ul li a");
-
-navLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    // Remove active from all links
-    navLinks.forEach(nav => nav.classList.remove("active-link"));
-    // Add active to clicked link
-    link.classList.add("active-link");
-  });
-});
-
-
-const menubtn = document.querySelector(".menu-btn");
-  const menu = document.querySelector(".menu-ul");
-  const icon = document.querySelector(".menu-btn i");
-
-  if (menubtn && menu && icon) {
-    menubtn.addEventListener("click", () => {
-      icon.classList.toggle("bx-menu");
-      icon.classList.toggle("bx-x");
-      menu.classList.toggle("active");
-      menubtn.classList.toggle("active");
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Toggle Icon
+        if(navLinks.classList.contains('active')){
+            menuIcon.classList.remove('bx-menu');
+            menuIcon.classList.add('bx-x');
+        } else {
+            menuIcon.classList.add('bx-menu');
+            menuIcon.classList.remove('bx-x');
+        }
     });
 
-    document.querySelectorAll(".menu-ul li a").forEach(item => {
-      item.addEventListener("click", () => {
-        menu.classList.remove("active");
-        icon.classList.add("bx-menu");
-        icon.classList.remove("bx-x");
-        menubtn.classList.remove("active");
-      });
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuIcon.classList.add('bx-menu');
+            menuIcon.classList.remove('bx-x');
+        });
     });
-  }
 
-  let input = document.querySelector(".js-home-btn");
+    // --- Scroll Reveal Animation ---
+    const sr = ScrollReveal({
+        origin: 'bottom',
+        distance: '60px',
+        duration: 2000,
+        delay: 200,
+        reset: false 
+    });
 
-input.addEventListener("click", () => {
-  input.classList.add("sent");
-  input.textContent = "Sent!";
-  setTimeout(() => {
-    input.classList.remove("sent");
-    input.classList.add("js-home-btn");
-    input.textContent = "Send Message";
-  }, 4000);
-  const form = document.querySelector(".contact-form");
-  const formData = new FormData(form);
-  const data = {};
-  formData.forEach((value, key) => {
-    data[key] = value;
-  });
-  fetch("https://formspree.io/f/xjvowzqk", {
-    method: "POST",
-    headers: {
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => {
-    if (response.ok) {
-      console.log("Form submitted successfully!");
-    } else {
-      console.error("Error submitting form:", response.statusText);
+    sr.reveal('.hero-text', { origin: 'left' });
+    sr.reveal('.hero-img', { origin: 'right', delay: 400 });
+    sr.reveal('.about-image-wrapper', { origin: 'left' });
+    sr.reveal('.about-details', { origin: 'right' });
+    sr.reveal('.skill-category', { interval: 200 });
+    sr.reveal('.project-card', { interval: 200 });
+    sr.reveal('.contact-wrapper', { origin: 'bottom' });
+
+    // --- GitHub API Integration ---
+    const githubContainer = document.getElementById('github-container');
+
+    if(githubContainer) {
+        // Fetch top 3 most recently updated repos
+        fetch('https://api.github.com/users/samuelechi/repos?sort=updated&per_page=3')
+            .then(response => response.json())
+            .then(data => {
+                // Clear the "Loading..." text
+                githubContainer.innerHTML = '';
+
+                data.forEach(repo => {
+                    // Create a card for each repo
+                    const repoCard = document.createElement('article');
+                    repoCard.classList.add('project-card');
+                    repoCard.style.padding = '1.5rem'; 
+                    
+                    repoCard.innerHTML = `
+                        <div class="card-content" style="padding:0;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                                <h3 style="margin:0; font-size:1.1rem;">
+                                    <i class='bx bxl-github' style="color:var(--primary);"></i> ${repo.name}
+                                </h3>
+                                <span style="font-size:0.8rem; background:rgba(255,255,255,0.1); padding:2px 8px; border-radius:4px;">
+                                    ⭐ ${repo.stargazers_count}
+                                </span>
+                            </div>
+                            <p style="font-size:0.9rem; color:var(--text-muted); height: 60px; overflow:hidden;">
+                                ${repo.description || 'No description available for this repository.'}
+                            </p>
+                            <div class="tech-stack-mini" style="margin-top:1rem;">
+                                <span>${repo.language || 'Code'}</span>
+                            </div>
+                            <a href="${repo.html_url}" target="_blank" class="card-link" style="margin-top:auto;">
+                                View Repo <i class='bx bx-right-arrow-alt'></i>
+                            </a>
+                        </div>
+                    `;
+                    githubContainer.appendChild(repoCard);
+                });
+            })
+            .catch(error => {
+                githubContainer.innerHTML = `<p style="color:red; width:100%; text-align:center;">Unable to load GitHub projects (API Limit reached or Network Error).</p>`;
+                console.error('Error fetching GitHub repos:', error);
+            });
     }
-  })
-  .catch(error => {
-    console.error("Network error:", error);
-  });
-  const contactForm = document.querySelector(".contact-form");
-  contactForm.reset();
-  
 
-})
 });
 
 
   
+
 
