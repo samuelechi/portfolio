@@ -23,7 +23,7 @@
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
-    font-family: 'Outfit', sans-serif; /* Modern Sans */
+    font-family: 'Outfit', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -134,7 +134,7 @@ nav {
 
 .menu-btn { display: none; font-size: 2rem; color: var(--text-main); cursor: pointer; }
 
-/* --- Hero Section (Split Layout) --- */
+/* --- Hero Section --- */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -222,7 +222,7 @@ nav {
 .stats-grid { display: flex; gap: 3rem; margin-top: 2rem; }
 .stat-box h4 { font-size: 2rem; color: var(--primary); }
 
-/* --- Skills (Pill Tags) --- */
+/* --- Skills --- */
 .skills-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -248,10 +248,10 @@ nav {
 }
 .skill-tags span:hover { background: var(--primary); color: var(--bg-main); }
 
-/* --- Portfolio (Grid) --- */
+/* --- Portfolio Grid --- */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
     gap: 2rem;
 }
 .project-card {
@@ -260,18 +260,21 @@ nav {
     overflow: hidden;
     transition: var(--transition);
     border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
 }
 .project-card:hover { transform: translateY(-10px); }
-.card-image { height: 200px; overflow: hidden; }
+
+.card-image { height: 200px; overflow: hidden; width: 100%; }
 .card-image img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
 .project-card:hover .card-image img { transform: scale(1.1); }
 
-.card-content { padding: 1.5rem; }
+.card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
 .card-content h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-.card-content p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; }
-.tech-stack-mini { margin-bottom: 1.5rem; display: flex; gap: 10px; }
+.card-content p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; flex-grow: 1; }
+.tech-stack-mini { margin-bottom: 1.5rem; display: flex; gap: 8px; flex-wrap: wrap; }
 .tech-stack-mini span { font-size: 0.75rem; color: var(--primary); background: rgba(56, 189, 248, 0.1); padding: 4px 8px; border-radius: 4px; }
-.card-link { color: var(--text-main); font-weight: 600; display: flex; align-items: center; gap: 5px; }
+.card-link { color: var(--text-main); font-weight: 600; display: flex; align-items: center; gap: 5px; margin-top: auto; }
 .card-link:hover { color: var(--primary); gap: 10px; }
 
 /* --- Contact --- */
@@ -330,8 +333,6 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,2
     .btn-secondary { margin-left: 0; margin-top: 1rem; display: block; width: 100%; text-align: center;}
 }
 
-  
-  
 
 
 
