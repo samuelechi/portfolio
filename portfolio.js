@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // --- Typed JS Configuration ---
     const typed = new Typed('.typed-text', {
-        strings: ['Frontend Solutions', 'Secure Backends', 'Scalable Web Apps', 'Digital Experiences'],
+        strings: ['Modern Web Apps', 'Secure Backends', 'Shopify Stores', 'Digital Experiences'],
         typeSpeed: 60,
         backSpeed: 40,
         loop: true
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sr.reveal('.about-image-wrapper', { origin: 'left' });
     sr.reveal('.about-details', { origin: 'right' });
     sr.reveal('.skill-category', { interval: 200 });
-    sr.reveal('.project-card', { interval: 200 });
+    sr.reveal('.project-card', { interval: 100 });
     sr.reveal('.contact-wrapper', { origin: 'bottom' });
 
     // --- GitHub API Integration ---
@@ -59,11 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch('https://api.github.com/users/samuelechi/repos?sort=updated&per_page=3')
             .then(response => response.json())
             .then(data => {
-                // Clear the "Loading..." text
-                githubContainer.innerHTML = '';
+                githubContainer.innerHTML = ''; // Clear loading text
 
                 data.forEach(repo => {
-                    // Create a card for each repo
                     const repoCard = document.createElement('article');
                     repoCard.classList.add('project-card');
                     repoCard.style.padding = '1.5rem'; 
@@ -79,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </span>
                             </div>
                             <p style="font-size:0.9rem; color:var(--text-muted); height: 60px; overflow:hidden;">
-                                ${repo.description || 'No description available for this repository.'}
+                                ${repo.description || 'No description available.'}
                             </p>
                             <div class="tech-stack-mini" style="margin-top:1rem;">
                                 <span>${repo.language || 'Code'}</span>
@@ -93,8 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             })
             .catch(error => {
-                githubContainer.innerHTML = `<p style="color:red; width:100%; text-align:center;">Unable to load GitHub projects (API Limit reached or Network Error).</p>`;
-                console.error('Error fetching GitHub repos:', error);
+                githubContainer.innerHTML = `<p style="color:red; width:100%; text-align:center;">GitHub feed temporarily unavailable.</p>`;
             });
     }
 
@@ -102,5 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   
+
 
 
